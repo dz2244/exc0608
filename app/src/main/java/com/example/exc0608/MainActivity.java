@@ -13,8 +13,8 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     TextView tv1,tv2,tv3,tv4,tv5,tv6;
-    int rand1,rand2,rand3,rand4,ans;
-    String str;
+    int rand1,rand2,rand3,rand4,ans1,ans2,ans3;
+    String str1,str2,str3;
     EditText etn1,etn2,etn3;
     ImageView iv1,iv2,iv3;
     Button btn1,btn2,btn3,bigbtn ;
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         tv1.setText(" "+rand1);
         tv2.setText(" "+rand2);
+        tv4.setText(" "+rand3);
 
         tv3.setVisibility(View.INVISIBLE);
         tv4.setVisibility(View.INVISIBLE);
@@ -69,11 +70,11 @@ public class MainActivity extends AppCompatActivity {
     public void clickEtn1(View view) {
         clickedEtn1 = true;
     }
-    public void ace(View view) {
-        str = etn1.getText().toString();
-        if (!str.isEmpty()) {
-            ans = Integer.parseInt(str);
-            if (ans == rand1 + rand2)
+    public void clickedBtn1(View view) {
+        str1 = etn1.getText().toString();
+        if (!str1.isEmpty()) {
+            ans1 = Integer.parseInt(str1);
+            if (ans1 == rand1 + rand2)
                 iv1.setImageResource(R.drawable.check);
             else
                 iv1.setImageResource(R.drawable.x);
@@ -84,6 +85,28 @@ public class MainActivity extends AppCompatActivity {
             iv2.setVisibility(View.VISIBLE);
             btn2.setVisibility(View.VISIBLE);
             tv3.setText("" + (rand1 + rand2));
+        }
+    }
+
+
+    public void clickedEtn2(View view) {clickedEtn2 = true;}
+
+
+    public void clickedBtn2(View view) {
+        str2 = etn2.getText().toString();
+        if (!str2.isEmpty()) {
+            ans2 = Integer.parseInt(str2);
+            if (ans2 == rand3 + (rand1 + rand2))
+                iv2.setImageResource(R.drawable.check);
+            else
+                iv2.setImageResource(R.drawable.x);
+
+            tv5.setVisibility(View.VISIBLE);
+            tv6.setVisibility(View.VISIBLE);
+            etn3.setVisibility(View.VISIBLE);
+            iv3.setVisibility(View.VISIBLE);
+            btn3.setVisibility(View.VISIBLE);
+            tv5.setText("" + (rand3 + rand4));
         }
     }
 }
