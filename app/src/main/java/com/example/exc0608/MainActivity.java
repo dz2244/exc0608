@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         tv1.setText(" "+rand1);
         tv2.setText(" "+rand2);
         tv4.setText(" "+rand3);
+        tv6.setText(" "+rand4);
 
         tv3.setVisibility(View.INVISIBLE);
         tv4.setVisibility(View.INVISIBLE);
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         str2 = etn2.getText().toString();
         if (!str2.isEmpty()) {
             ans2 = Integer.parseInt(str2);
-            if (ans2 == rand3 + (rand1 + rand2))
+            if (ans2 == rand3 + rand1 + rand2)
                 iv2.setImageResource(R.drawable.check);
             else
                 iv2.setImageResource(R.drawable.x);
@@ -106,7 +107,20 @@ public class MainActivity extends AppCompatActivity {
             etn3.setVisibility(View.VISIBLE);
             iv3.setVisibility(View.VISIBLE);
             btn3.setVisibility(View.VISIBLE);
-            tv5.setText("" + (rand3 + rand4));
+            tv5.setText("" + (rand3 + rand1 + rand2));
+        }
+    }
+
+    public void clickedEtn3(View view) {clickedEtn3 = true;}
+
+    public void clickedBtn3(View view) {
+        str3 = etn3.getText().toString();
+        if (!str3.isEmpty()) {
+            ans3 = Integer.parseInt(str3);
+            if (ans3 == rand4 + rand1 + rand2 + rand3)
+                iv3.setImageResource(R.drawable.check);
+            else
+                iv3.setImageResource(R.drawable.x);
         }
     }
 }
